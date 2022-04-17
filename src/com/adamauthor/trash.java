@@ -13,7 +13,7 @@ public class trash {
 //    try {
 //        BufferedWriter writerReaders = new BufferedWriter(new FileWriter("readers.txt"));
 //        BufferedWriter writerWorkers = new BufferedWriter(new FileWriter("workers.txt"));
-//        BufferedWriter writerPublication = new BufferedWriter(new FileWriter("publication.txt"));
+//        BufferedWriter writerPublication = new BufferedWriter(new FileWriter("magazines.txt"));
 //
 //        reader.add(new Readers(12123, "Monkey_D_Luffy", 2019));
 //        reader.add(new Readers(10009, "Shoe_Hinata", 2022));

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
 
 
 public class Main {
@@ -30,20 +31,23 @@ public class Main {
             BufferedReader readerReader = new BufferedReader(new FileReader("readers.txt"));
             String strReader = "";
             while ((strReader = readerReader.readLine()) != null) {
-                reader.add(strReader);
+                String[] splitReader = strReader.split(" ");
+                reader.add(new Readers(parseInt(splitReader[0]), splitReader[1], parseInt(splitReader[2])));
             }
             readerReader.close();
 
             BufferedReader readerWorker= new BufferedReader(new FileReader("workers.txt"));
             String strWorker = "";
             while ((strWorker = readerWorker.readLine()) != null) {
-                worker.add(strWorker);
+                String[] splitWorker = strWorker.split(" ");
+                worker.add(new Workers(Integer.parseInt(splitWorker[0]), splitWorker[1], splitWorker[2], splitWorker[3], Integer.parseInt(splitWorker[4]), Integer.parseInt(splitWorker[5])));
             }
             readerWorker.close();
 
-            BufferedReader readerPublic = new BufferedReader(new FileReader("publication.txt"));
+            BufferedReader readerPublic = new BufferedReader(new FileReader(" "));
             String strPublic = "";
             while ((strReader = readerPublic.readLine()) != null) {
+
                 reader.add(strPublic);
             }
 
@@ -196,7 +200,7 @@ public class Main {
                                 publication.add(books);
 
                                 try {
-                                    BufferedWriter appendWriter = new BufferedWriter(new FileWriter("publication.txt", true));
+                                    BufferedWriter appendWriter = new BufferedWriter(new FileWriter("magazines.txt", true));
                                     Publication lastpub = publication.get(publication.size() - 1);
                                     String pubS = lastpub.publicationInfo() + "\n";
 
@@ -214,7 +218,7 @@ public class Main {
                                 System.out.print("Title: ");
                                 String title = in.next();
                                 System.out.print("Publication number: ");
-                                int publicationNum = in.nextInt();
+                                String publicationNum = in.next();
                                 System.out.print("Year of publication: ");
                                 int yearOfPublication = in.nextInt();
 
