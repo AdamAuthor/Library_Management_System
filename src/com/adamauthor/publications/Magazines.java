@@ -3,10 +3,10 @@ package com.adamauthor.publications;
 public class Magazines extends Books implements Publication {
     private String nameOfMag;
     private String title;
-    private int publicationNum;
+    private String publicationNum;
     private int yearOfPublication;
 
-    public Magazines(String nameOfMag, String title, int publNum, int yearOfPublication) {
+    public Magazines(String nameOfMag, String title, String publNum, int yearOfPublication) {
         this.nameOfMag = nameOfMag;
         this.title = title;
         this.publicationNum = publNum;
@@ -32,11 +32,11 @@ public class Magazines extends Books implements Publication {
         this.title = title;
     }
 
-    public int getPublicationNum() {
+    public String getPublicationNum() {
         return publicationNum;
     }
 
-    public void setPublicationNum(int publicationNum) {
+    public void setPublicationNum(String publicationNum) {
         this.publicationNum = publicationNum;
     }
 
