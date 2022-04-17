@@ -16,11 +16,11 @@ import static java.lang.Integer.parseInt;
 
 
 public class Main {
-    private static final ArrayList<Readers> reader = new ArrayList<>();
-    private static final ArrayList<Workers> worker = new ArrayList<>();
+    public static final ArrayList<Readers> reader = new ArrayList<>();
+    public static final ArrayList<Workers> worker = new ArrayList<>();
     private static final ArrayList<Books> book = new ArrayList<>();
     private static final ArrayList<Magazines> magazine = new ArrayList<>();
-    private static final ArrayList<Publication> publication = new ArrayList<>();
+    public static final ArrayList<Publication> publication = new ArrayList<>();
 
     public static MainFrame frame;
 
@@ -72,70 +72,8 @@ public class Main {
         frame = new MainFrame();
         frame.setVisible(true);
 
-        System.out.println("Welcome to the Library Management System!");
-        System.out.println("Are you a reader, or do you work in our library? ");
-
-        boolean workerTrue = false;
-        boolean readerTrue = false;
-
-        while (true) {
-            System.out.println(
-                    "PRESS [1] IF YOU READER\n" +
-                            "PRESS [2] IF YOU WORKER"
-            );
-
-            int switchNum = in.nextInt();
-            if (switchNum == 1) {
-                readerTrue = true;
-                break;
-            } else if (switchNum == 2) {
-                workerTrue = true;
-                break;
-            } else {
-                System.out.println("Please, enter correct num");
-            }
-        }
-
         boolean readerIDEqual = false;
         boolean workerIDEqual = false;
-
-        if (readerTrue) {
-            while (true) {
-                System.out.print("Reader, enter your ID: ");
-                int num = in.nextInt();
-                for (Readers readers : reader) {
-                    if (readers.getPersonID() == num) {
-                        readerIDEqual = true;
-                        break;
-                    }
-                }
-
-                if (readerIDEqual) {
-                    break;
-                } else {
-                    System.out.println("Error!\n");
-                }
-            }
-        }
-
-        if (workerTrue) {
-            while (true) {
-                System.out.print("Enter your ID: ");
-                int num = in.nextInt();
-                for (Workers workers : worker) {
-                    if (workers.getPersonID() == num) {
-                        workerIDEqual = true;
-                        break;
-                    }
-                }
-
-                if (workerIDEqual) {
-                    break;
-                } else {
-                    System.out.println("Error!\n");
-                }
-            }
-        }
 
         if (readerIDEqual) {
             while (true) {

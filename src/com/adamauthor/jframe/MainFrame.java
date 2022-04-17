@@ -28,7 +28,8 @@ public class MainFrame extends JFrame {
 
     public MainFrame(){
         setSize(500, 400);
-        setTitle("Student Application");
+        setTitle("Library Management System");
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         menuWindow = new MainMenu();
@@ -38,7 +39,22 @@ public class MainFrame extends JFrame {
         readerIDWindow = new ReaderID();
         readerIDWindow.setLocation(0, 0);
         readerIDWindow.setVisible(false);
-        add(readerAddWindow);
+        add(readerIDWindow);
+
+        readerMenuWindow = new ReaderMenu();
+        readerIDWindow.setLocation(0, 0);
+        readerIDWindow.setVisible(false);
+        add(readerIDWindow);
+
+        findWindow = new Find();
+        findWindow.setLocation(0, 0);
+        findWindow.setVisible(false);
+        add(findWindow);
+
+        displayWindow = new Display();
+        displayWindow.setLocation(0, 0);
+        displayWindow.setVisible(false);
+        add(displayWindow);
 
         workerIDWindow = new WorkerID();
         workerIDWindow.setLocation(0, 0);

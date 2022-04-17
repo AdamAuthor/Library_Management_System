@@ -13,15 +13,15 @@ public class MainMenu extends Container {
         setLayout(null);
 
         JLabel welcomeLabel = new JLabel("Welcome to the Library Management System!");
-        welcomeLabel.setBounds(90, 60, 60, 30);
+        welcomeLabel.setBounds(90, 10, 350, 100);
         add(welcomeLabel);
 
         JLabel questionLabel = new JLabel("Are you a reader, or do you work in our library? ");
-        questionLabel.setBounds(90, 80, 60, 30);
+        questionLabel.setBounds(90, 100, 350, 30);
         add(questionLabel);
 
         JButton readerButton = new JButton("READER");
-        readerButton.setBounds(100, 80, 300, 30);
+        readerButton.setBounds(100, 140, 300, 30);
         readerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,19 +32,19 @@ public class MainMenu extends Container {
         add(readerButton);
 
         JButton workerButton = new JButton("WORKER");
-        workerButton.setBounds(100, 120, 300, 30);
+        workerButton.setBounds(100, 180, 300, 30);
         workerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.frame.menuWindow.setVisible(false);
-                Main.frame.workerIDWindow.setVisible(true);
+                MainFrame.menuWindow.setVisible(false);
+                MainFrame.workerIDWindow.setVisible(true);
 
             }
         });
         add(workerButton);
 
         JButton exitButton = new JButton("EXIT");
-        exitButton.setBounds(100, 160, 300, 30);
+        exitButton.setBounds(100, 220, 300, 30);
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,8 +52,5 @@ public class MainMenu extends Container {
             }
         });
         add(exitButton);
-
-
-
     }
 }
