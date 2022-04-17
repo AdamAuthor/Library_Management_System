@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.reader;
 
-public class Display {
+import java.awt.*;
+
+public class Display extends Container {
 }

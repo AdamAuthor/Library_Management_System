@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.reader;
 
-public class ReaderMenu {
+import java.awt.*;
+
+public class ReaderMenu extends Container {
 }

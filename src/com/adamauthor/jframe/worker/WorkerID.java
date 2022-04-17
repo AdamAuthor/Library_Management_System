@@ -1,4 +1,10 @@
 package com.adamauthor.jframe.worker;
 
-public class WorkerID {
+import java.awt.*;
+
+public class WorkerID extends Container {
+    public WorkerID() {
+        setSize(500, 400);
+        setLayout(null);
+    }
 }

@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.worker;
 
-public class PublicationAdd {
+import java.awt.*;
+
+public class PublicationAdd extends Container {
 }

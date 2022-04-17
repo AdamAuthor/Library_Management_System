@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.reader;
 
-public class Find {
+import java.awt.*;
+
+public class Find extends Container {
 }

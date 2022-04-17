@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.worker;
 
-public class WorkerMenu {
+import java.awt.*;
+
+public class WorkerMenu extends Container {
 }

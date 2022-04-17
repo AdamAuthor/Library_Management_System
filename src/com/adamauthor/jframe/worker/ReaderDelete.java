@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.worker;
 
-public class ReaderDelete {
+import java.awt.*;
+
+public class ReaderDelete extends Container {
 }

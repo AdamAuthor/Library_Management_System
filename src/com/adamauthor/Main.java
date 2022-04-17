@@ -1,5 +1,6 @@
 package com.adamauthor;
 
+import com.adamauthor.jframe.MainFrame;
 import com.adamauthor.persons.Readers;
 import com.adamauthor.persons.Workers;
 import com.adamauthor.publications.Books;
@@ -20,6 +21,8 @@ public class Main {
     private static final ArrayList<Books> book = new ArrayList<>();
     private static final ArrayList<Magazines> magazine = new ArrayList<>();
     private static final ArrayList<Publication> publication = new ArrayList<>();
+
+    public static MainFrame frame;
 
     private static final Scanner in;
     static {
@@ -65,6 +68,9 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        frame = new MainFrame();
+        frame.setVisible(true);
 
         System.out.println("Welcome to the Library Management System!");
         System.out.println("Are you a reader, or do you work in our library? ");

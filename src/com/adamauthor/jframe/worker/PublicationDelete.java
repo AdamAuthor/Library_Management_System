@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.worker;
 
-public class PublicationDelete {
+import java.awt.*;
+
+public class PublicationDelete extends Container {
 }

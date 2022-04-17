@@ -1,4 +1,6 @@
 package com.adamauthor.jframe.worker;
 
-public class ReaderAdd {
+import java.awt.*;
+
+public class ReaderAdd extends Container {
 }
