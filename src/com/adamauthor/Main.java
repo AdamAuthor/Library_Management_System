@@ -27,7 +27,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         try {
             BufferedReader readerReader = new BufferedReader(new FileReader("readers.txt"));
             String strReader = "";
