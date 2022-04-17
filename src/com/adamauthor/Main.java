@@ -15,9 +15,10 @@ import static java.lang.Integer.parseInt;
 
 
 public class Main {
-
     private static final ArrayList<Readers> reader = new ArrayList<>();
     private static final ArrayList<Workers> worker = new ArrayList<>();
+    private static final ArrayList<Books> book = new ArrayList<>();
+    private static final ArrayList<Magazines> magazine = new ArrayList<>();
     private static final ArrayList<Publication> publication = new ArrayList<>();
 
     private static final Scanner in;
@@ -44,14 +45,23 @@ public class Main {
             }
             readerWorker.close();
 
-            BufferedReader readerPublic = new BufferedReader(new FileReader(" "));
-            String strPublic = "";
-            while ((strReader = readerPublic.readLine()) != null) {
-
-                reader.add(strPublic);
+            BufferedReader readerBook = new BufferedReader(new FileReader("books.txt"));
+            String strBook = "";
+            while ((strBook = readerBook.readLine()) != null) {
+                String[] splitBook = strBook.split(" ");
+                book.add(new Books(splitBook[0], splitBook[1], splitBook[2], Integer.parseInt(splitBook[3])));
+                publication.add(new Books(splitBook[0], splitBook[1], splitBook[2], Integer.parseInt(splitBook[3])));
             }
+            readerBook.close();
 
-            readerPublic.close();
+            BufferedReader readerMagazine = new BufferedReader(new FileReader("magazines.txt"));
+            String strMagazine = "";
+            while ((strMagazine = readerMagazine.readLine()) != null) {
+                String[] splitMagazine = strMagazine.split(" ");
+                magazine.add(new Magazines(splitMagazine[0], splitMagazine[1], splitMagazine[2], Integer.parseInt(splitMagazine[3])));
+                publication.add(new Magazines(splitMagazine[0], splitMagazine[1], splitMagazine[2], Integer.parseInt(splitMagazine[3])));
+            }
+            readerMagazine.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +115,7 @@ public class Main {
 
         if (workerTrue) {
             while (true) {
-                System.out.println("Enter your ID: ");
+                System.out.print("Enter your ID: ");
                 int num = in.nextInt();
                 for (Workers workers : worker) {
                     if (workers.getPersonID() == num) {
@@ -196,11 +206,12 @@ public class Main {
                                 System.out.print("Year of publication: ");
                                 int yearOfPublication = in.nextInt();
 
-                                Books books = new Books(title, author, genre, yearOfPublication);
-                                publication.add(books);
+                                Books bookAdd = new Books(title, author, genre, yearOfPublication);
+                                book.add(bookAdd);
+                                publication.add(bookAdd);
 
                                 try {
-                                    BufferedWriter appendWriter = new BufferedWriter(new FileWriter("magazines.txt", true));
+                                    BufferedWriter appendWriter = new BufferedWriter(new FileWriter("books.txt", true));
                                     Publication lastpub = publication.get(publication.size() - 1);
                                     String pubS = lastpub.publicationInfo() + "\n";
 
@@ -223,8 +234,23 @@ public class Main {
                                 int yearOfPublication = in.nextInt();
 
                                 Magazines magazineAdd = new Magazines(name, title, publicationNum, yearOfPublication);
+
+                                magazine.add(magazineAdd);
                                 publication.add(magazineAdd);
+
+                                try {
+                                    BufferedWriter appendWriter = new BufferedWriter(new FileWriter("magazines.txt", true));
+                                    Publication lastpub = publication.get(publication.size() - 1);
+                                    String pubS = lastpub.publicationInfo() + "\n";
+
+                                    appendWriter.write(pubS);
+                                    appendWriter.close();
+
+                                } catch (Exception e){
+                                    e.printStackTrace();
+                                }
                                 break;
+
                             } else {
                                 System.out.println("Incorrect number\n");
                             }
@@ -235,9 +261,57 @@ public class Main {
                         System.out.println("Enter the name of the publication you want to delete:");
                         String title = in.next();
                         for (int i = 0; i < publication.size(); i++) {
-                            Publication publicationDel = Main.publication.get(i);
+                            Publication publicationDel = publication.get(i);
                             if (publicationDel.getTitle().equals(title)) {
-                                Main.publication.remove(i);
+
+                                if (publication.get(i) instanceof Books) {
+                                    for (int j = 0; j < book.size(); j++) {
+                                        Books bookDel = book.get(j);
+                                        if (bookDel.getTitle().equals(title)) {
+                                            book.remove(j);
+                                            try {
+                                                BufferedWriter writerBook = new BufferedWriter(new FileWriter("books.txt"));
+
+                                                String bookS = "";
+
+                                                for (Publication books : book) {
+                                                    bookS += books.publicationInfo() + "\n";
+                                                }
+
+                                                writerBook.write(bookS);
+                                                writerBook.close();
+
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (publication.get(i) instanceof Magazines) {
+                                    for (int j = 0; j < magazine.size(); j++) {
+                                        Magazines magazineDel = magazine.get(j);
+                                        if (magazineDel.getTitle().equals(title)) {
+                                            magazine.remove(j);
+                                            try {
+                                                BufferedWriter writerMagazine = new BufferedWriter(new FileWriter("magazines.txt"));
+
+                                                String magazineStr = "";
+
+                                                for (Publication magazines : magazine) {
+                                                    magazineStr += magazines.publicationInfo() + "\n";
+                                                }
+
+                                                writerMagazine.write(magazineStr);
+                                                writerMagazine.close();
+
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                }
+                                publication.remove(i);
                                 System.out.println("Success!");
                             }
                         }
@@ -277,6 +351,21 @@ public class Main {
                             Readers readerDel = reader.get(i);
                             if (readerDel.getPersonID() == idDel) {
                                 reader.remove(i);
+                                try {
+                                    BufferedWriter writerReader = new BufferedWriter(new FileWriter("readers.txt"));
+
+                                    String readerStr = "";
+
+                                    for (Readers readers : reader) {
+                                        readerStr += readers.personInfo() + "\n";
+                                    }
+
+                                    writerReader.write(readerStr);
+                                    writerReader.close();
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 System.out.println("Success!");
                             }
                         }
