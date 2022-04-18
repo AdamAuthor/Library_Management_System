@@ -22,7 +22,7 @@ public class PublicationAdd extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.publicationAddWindow.setVisible(false);
-                MainFrame.readerIDWindow.setVisible(true);
+                MainFrame.addBookWindow.setVisible(true);
             }
         });
         add(bookButton);
@@ -32,8 +32,8 @@ public class PublicationAdd extends Container {
         magazineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.menuWindow.setVisible(false);
-                MainFrame.workerIDWindow.setVisible(true);
+                MainFrame.publicationAddWindow.setVisible(false);
+                MainFrame.addMagazineWindow.setVisible(true);
 
             }
         });
@@ -48,5 +48,6 @@ public class PublicationAdd extends Container {
                 MainFrame.publicationAddWindow.setVisible(false);
             }
         });
+        add(backButton);
     }
 }

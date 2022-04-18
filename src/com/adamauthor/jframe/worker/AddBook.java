@@ -45,19 +45,19 @@ public class AddBook extends Container {
         add(genreTextField);
 
         JLabel yearLabel = new JLabel("Year: ");
-        yearLabel.setBounds(90, 140, 60, 30);
+        yearLabel.setBounds(90, 180, 60, 30);
         add(yearLabel);
 
         JTextField yearTextField = new JTextField();
-        yearTextField.setBounds(150, 140, 150, 30);
+        yearTextField.setBounds(150, 180, 150, 30);
         add(yearTextField);
 
         JButton addButton = new JButton("ADD");
-        addButton.setBounds(90, 180, 210, 30);
+        addButton.setBounds(90, 220, 210, 30);
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Books bookAdd = new Books(titleLabel.getText(), authorLabel.getText(), genreLabel.getText(), Integer.parseInt(yearLabel.getText()));
+                Books bookAdd = new Books(titleText.getText(), authorTextField.getText(), genreTextField.getText(), Integer.parseInt(yearTextField.getText()));
                 Main.book.add(bookAdd);
                 Main.publication.add(bookAdd);
 
@@ -72,17 +72,21 @@ public class AddBook extends Container {
                 } catch (Exception exception){
                     exception.printStackTrace();
                 }
+                titleText.setText("");
+                authorTextField.setText("");
+                genreTextField.setText("");
+                yearTextField.setText("");
             }
         });
         add(addButton);
 
         JButton backButton = new JButton("BACK");
-        backButton.setBounds(90, 220, 210, 30);
+        backButton.setBounds(90, 260, 210, 30);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.workerMenuWindow.setVisible(true);
-                MainFrame.readerAddWindow.setVisible(false);
+                MainFrame.publicationAddWindow.setVisible(true);
+                MainFrame.addBookWindow.setVisible(false);
             }
         });
 

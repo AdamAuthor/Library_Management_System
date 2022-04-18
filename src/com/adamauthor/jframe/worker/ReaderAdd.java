@@ -17,7 +17,7 @@ public class ReaderAdd extends Container {
         setSize(500, 400);
         setLayout(null);
 
-        JLabel idLabel = new JLabel("Reader ID: ");
+        JLabel idLabel = new JLabel("ID: ");
         idLabel.setBounds(90, 60, 60, 30);
         add(idLabel);
 
@@ -25,13 +25,18 @@ public class ReaderAdd extends Container {
         idText.setBounds(150, 60, 150, 30);
         add(idText);
 
-        JLabel fullNameLabel = new JLabel("Full name: ");
+        JLabel fullNameLabel = new JLabel("Name: ");
         fullNameLabel.setBounds(90, 100, 60, 30);
         add(fullNameLabel);
 
         JTextField fullNameText = new JTextField();
-        fullNameText.setBounds(150, 60, 150, 30);
+        fullNameText.setBounds(150, 100, 150, 30);
         add(fullNameText);
+
+        JTextField successText = new JTextField();
+        successText.setBounds(150, 140, 150, 30);
+        successText.setEditable(false);
+        add(successText);
 
         JButton addButton = new JButton("ADD STUDENT");
         addButton.setBounds(90, 220, 210, 30);
@@ -50,6 +55,9 @@ public class ReaderAdd extends Container {
 
                     appendWriter.write(readS);
                     appendWriter.close();
+                    idText.setText("");
+                    fullNameText.setText("");
+                    successText.setText("Success!");
 
                 } catch (Exception exception){
                     exception.printStackTrace();

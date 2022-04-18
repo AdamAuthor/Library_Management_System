@@ -91,6 +91,7 @@ public class PublicationDelete extends Container {
                         }
                         Main.publication.remove(i);
                         goalText.setText("Success!");
+                        deleteText.setText("");
                     }
                 }
             }
@@ -102,8 +103,8 @@ public class PublicationDelete extends Container {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.readerMenuWindow.setVisible(true);
-                MainFrame.findWindow.setVisible(false);
+                MainFrame.workerMenuWindow.setVisible(true);
+                MainFrame.publicationDeleteWindow.setVisible(false);
             }
         });
         add(backButton);

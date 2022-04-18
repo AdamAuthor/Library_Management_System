@@ -40,6 +40,7 @@ public class PublicationDisplay extends Container {
             public void actionPerformed(ActionEvent e) {
                 MainFrame.workerMenuWindow.setVisible(true);
                 MainFrame.publicationDisplayWindow.setVisible(false);
+                text.setText("");
             }
         });
         add(backButton);

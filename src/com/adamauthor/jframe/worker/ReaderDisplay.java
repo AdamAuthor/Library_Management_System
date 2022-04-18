@@ -40,6 +40,7 @@ public class ReaderDisplay extends Container {
             public void actionPerformed(ActionEvent e) {
                 MainFrame.workerMenuWindow.setVisible(true);
                 MainFrame.readerDisplayWindow.setVisible(false);
+                text.setText("");
             }
         });
         add(backButton);

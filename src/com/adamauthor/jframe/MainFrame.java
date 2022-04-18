@@ -78,6 +78,11 @@ public class MainFrame extends JFrame {
         addBookWindow.setVisible(false);
         add(addBookWindow);
 
+        addMagazineWindow = new AddMagazine();
+        addMagazineWindow.setLocation(0, 0);
+        addMagazineWindow.setVisible(false);
+        add(addMagazineWindow);
+
         publicationDeleteWindow = new PublicationDelete();
         publicationDeleteWindow.setLocation(0, 0);
         publicationDeleteWindow.setVisible(false);
@@ -88,10 +93,10 @@ public class MainFrame extends JFrame {
         publicationDisplayWindow.setVisible(false);
         add(publicationDisplayWindow);
 
-        readerDisplayWindow = new ReaderDisplay();
-        readerDisplayWindow.setLocation(0, 0);
-        readerDisplayWindow.setVisible(false);
-        add(readerDisplayWindow);
+        readerAddWindow = new ReaderAdd();
+        readerAddWindow.setLocation(0, 0);
+        readerAddWindow.setVisible(false);
+        add(readerAddWindow);
 
         readerDeleteWindow = new ReaderDelete();
         readerDeleteWindow.setLocation(0, 0);

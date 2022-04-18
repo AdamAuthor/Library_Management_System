@@ -54,6 +54,7 @@ public class ReaderDelete extends Container {
                         } catch (Exception exception) {
                             exception.printStackTrace();
                         }
+                        deleteText.setText("");
                         goalText.setText("Success!");
                     }
                 }
@@ -66,8 +67,8 @@ public class ReaderDelete extends Container {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.readerMenuWindow.setVisible(true);
-                MainFrame.findWindow.setVisible(false);
+                MainFrame.workerMenuWindow.setVisible(true);
+                MainFrame.readerDeleteWindow.setVisible(false);
             }
         });
         add(backButton);

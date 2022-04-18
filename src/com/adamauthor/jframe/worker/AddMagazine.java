@@ -2,7 +2,6 @@ package com.adamauthor.jframe.worker;
 
 import com.adamauthor.Main;
 import com.adamauthor.jframe.MainFrame;
-import com.adamauthor.publications.Books;
 import com.adamauthor.publications.Magazines;
 import com.adamauthor.publications.Publication;
 
@@ -34,7 +33,7 @@ public class AddMagazine extends Container {
         titleTextField.setBounds(150, 100, 150, 30);
         add(titleTextField);
 
-        JLabel numberLabel = new JLabel("Number: ");
+        JLabel numberLabel = new JLabel("NUM: ");
         numberLabel.setBounds(90, 140, 60, 30);
         add(numberLabel);
 
@@ -43,19 +42,19 @@ public class AddMagazine extends Container {
         add(numberTextField);
 
         JLabel yearLabel = new JLabel("Year: ");
-        yearLabel.setBounds(90, 140, 60, 30);
+        yearLabel.setBounds(90, 180, 60, 30);
         add(yearLabel);
 
         JTextField yearTextField = new JTextField();
-        yearTextField.setBounds(150, 140, 150, 30);
+        yearTextField.setBounds(150, 180, 150, 30);
         add(yearTextField);
 
         JButton addButton = new JButton("ADD");
-        addButton.setBounds(90, 180, 210, 30);
+        addButton.setBounds(90, 220, 210, 30);
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Magazines magazinesAdd = new Magazines(nameLabel.getText(), titleLabel.getText(), numberLabel.getText(), Integer.parseInt(yearLabel.getText()));
+                Magazines magazinesAdd = new Magazines(nameText.getText(), titleTextField.getText(), numberTextField.getText(), Integer.parseInt(yearTextField.getText()));
                 Main.magazine.add(magazinesAdd);
                 Main.publication.add(magazinesAdd);
 
@@ -70,17 +69,21 @@ public class AddMagazine extends Container {
                 } catch (Exception exception){
                     exception.printStackTrace();
                 }
+                nameText.setText("");
+                titleTextField.setText("");
+                numberTextField.setText("");
+                yearTextField.setText("");
             }
         });
         add(addButton);
 
         JButton backButton = new JButton("BACK");
-        backButton.setBounds(90, 220, 210, 30);
+        backButton.setBounds(90, 260, 210, 30);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.workerMenuWindow.setVisible(true);
-                MainFrame.readerAddWindow.setVisible(false);
+                MainFrame.publicationAddWindow.setVisible(true);
+                MainFrame.addMagazineWindow.setVisible(false);
             }
         });
 
