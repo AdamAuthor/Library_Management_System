@@ -18,8 +18,8 @@ import static java.lang.Integer.parseInt;
 public class Main {
     public static final ArrayList<Readers> reader = new ArrayList<>();
     public static final ArrayList<Workers> worker = new ArrayList<>();
-    private static final ArrayList<Books> book = new ArrayList<>();
-    private static final ArrayList<Magazines> magazine = new ArrayList<>();
+    public static final ArrayList<Books> book = new ArrayList<>();
+    public static final ArrayList<Magazines> magazine = new ArrayList<>();
     public static final ArrayList<Publication> publication = new ArrayList<>();
 
     public static MainFrame frame;
@@ -72,47 +72,7 @@ public class Main {
         frame = new MainFrame();
         frame.setVisible(true);
 
-        boolean readerIDEqual = false;
         boolean workerIDEqual = false;
-
-        if (readerIDEqual) {
-            while (true) {
-                System.out.println(
-                        "PRESS [1] TO FIND PUBLICATION\n" +
-                                "PRESS [2] TO DISPLAY ALL PUBLICATIONS\n" +
-                                "PRESS [0] TO EXIT"
-                );
-
-                int numSwitchFull = in.nextInt();
-
-                switch (numSwitchFull) {
-                    case 1:
-                        System.out.println("Enter the name of the publication you want to find:");
-                        String title = in.next();
-                        for (Publication publicFind : publication) {
-                            if (publicFind.getTitle().equals(title)) {
-                                System.out.println("Success!");
-                                System.out.println(publicFind.publicationInfo());
-                            }
-                        }
-                        break;
-
-                    case 2:
-                        for (Publication publicInfo : publication) {
-                            System.out.println(publicInfo.publicationInfo());
-                        }
-                        System.out.println("\n");
-                        break;
-
-                    case 0:
-                        System.out.println("Thank you for choosing our Library!");
-                        return;
-
-                    default:
-                        System.out.println("Incorrect number\n");
-                }
-            }
-        }
 
         if (workerIDEqual) {
             while (true) {

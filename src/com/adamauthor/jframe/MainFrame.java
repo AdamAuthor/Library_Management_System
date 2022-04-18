@@ -25,6 +25,8 @@ public class MainFrame extends JFrame {
     public static ReaderDelete readerDeleteWindow;
     public static ReaderDisplay readerDisplayWindow;
 
+    public static AddBook addBookWindow;
+    public static AddMagazine addMagazineWindow;
 
     public MainFrame(){
         setSize(500, 400);
@@ -36,12 +38,12 @@ public class MainFrame extends JFrame {
         menuWindow.setLocation(0,0);
         add(menuWindow);
 
-        readerIDWindow = new ReaderID();
-        readerIDWindow.setLocation(0, 0);
-        readerIDWindow.setVisible(false);
-        add(readerIDWindow);
-
         readerMenuWindow = new ReaderMenu();
+        readerMenuWindow.setLocation(0, 0);
+        readerMenuWindow.setVisible(false);
+        add(readerMenuWindow);
+
+        readerIDWindow = new ReaderID();
         readerIDWindow.setLocation(0, 0);
         readerIDWindow.setVisible(false);
         add(readerIDWindow);
@@ -60,6 +62,46 @@ public class MainFrame extends JFrame {
         workerIDWindow.setLocation(0, 0);
         workerIDWindow.setVisible(false);
         add(workerIDWindow);
+
+        workerMenuWindow = new WorkerMenu();
+        workerMenuWindow.setLocation(0, 0);
+        workerMenuWindow.setVisible(false);
+        add(workerMenuWindow);
+
+        publicationAddWindow = new PublicationAdd();
+        publicationAddWindow.setLocation(0, 0);
+        publicationAddWindow.setVisible(false);
+        add(publicationAddWindow);
+
+        addBookWindow = new AddBook();
+        addBookWindow.setLocation(0, 0);
+        addBookWindow.setVisible(false);
+        add(addBookWindow);
+
+        publicationDeleteWindow = new PublicationDelete();
+        publicationDeleteWindow.setLocation(0, 0);
+        publicationDeleteWindow.setVisible(false);
+        add(publicationDeleteWindow);
+
+        publicationDisplayWindow = new PublicationDisplay();
+        publicationDisplayWindow.setLocation(0, 0);
+        publicationDisplayWindow.setVisible(false);
+        add(publicationDisplayWindow);
+
+        readerDisplayWindow = new ReaderDisplay();
+        readerDisplayWindow.setLocation(0, 0);
+        readerDisplayWindow.setVisible(false);
+        add(readerDisplayWindow);
+
+        readerDeleteWindow = new ReaderDelete();
+        readerDeleteWindow.setLocation(0, 0);
+        readerDeleteWindow.setVisible(false);
+        add(readerDeleteWindow);
+
+        readerDisplayWindow = new ReaderDisplay();
+        readerDisplayWindow.setLocation(0, 0);
+        readerDisplayWindow.setVisible(false);
+        add(readerDisplayWindow);
     }
 }
 

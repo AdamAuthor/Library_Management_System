@@ -12,7 +12,10 @@ import java.awt.event.ActionListener;
 
 public class Find extends Container {
     public Find() {
-        JLabel findLabel = new JLabel("Enter the name of the publication you want to find: ");
+        setSize(500, 400);
+        setLayout(null);
+
+        JLabel findLabel = new JLabel("Enter the name of the publication: ");
         findLabel.setBounds(90, 100, 350, 30);
         add(findLabel);
 
@@ -22,6 +25,7 @@ public class Find extends Container {
 
         JTextField goalText = new JTextField();
         goalText.setBounds(100, 180, 300, 30);
+        goalText.setEditable(false);
         add(goalText);
 
         JButton findButton = new JButton("FIND");

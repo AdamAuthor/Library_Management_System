@@ -31,12 +31,12 @@ public class WorkerID extends Container {
                 int workerID = Integer.parseInt(idText.getText());
                 for (Workers workers : Main.worker) {
                     if (workers.getPersonID() == workerID) {
-                        MainFrame.workerMenuWindow.setVisible(true);
                         MainFrame.workerIDWindow.setVisible(false);
-
+                        MainFrame.workerMenuWindow.setVisible(true);
+                    } else {
+                        idText.setText("");
                     }
                 }
-
             }
         });
         add(goButton);

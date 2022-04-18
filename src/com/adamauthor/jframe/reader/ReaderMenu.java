@@ -21,8 +21,8 @@ public class ReaderMenu extends Container {
         findButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.readerMenuWindow.setVisible(false);
                 MainFrame.findWindow.setVisible(true);
+                MainFrame.readerMenuWindow.setVisible(false);
             }
         });
         add(findButton);
@@ -32,8 +32,8 @@ public class ReaderMenu extends Container {
         displayButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.readerMenuWindow.setVisible(false);
                 MainFrame.displayWindow.setVisible(true);
+                MainFrame.readerMenuWindow.setVisible(false);
             }
         });
         add(displayButton);
